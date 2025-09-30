@@ -22,10 +22,10 @@ A comprehensive DDoS (Distributed Denial of Service) protection system built in 
 ## Architecture
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Load Balancer │────│  DDoS Protection │────│  Backend Services │
-│   / Proxy       │    │     Service      │    │                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+┌─────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│   Load Balancer │────│  DDoS Protection │────│ Backend Services │
+│   / Proxy       │    │     Service      │    │                  │
+└─────────────────┘    └──────────────────┘    └──────────────────┘
                               │
                               ▼
                        ┌─────────────────┐
