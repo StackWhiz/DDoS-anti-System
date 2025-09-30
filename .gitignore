@@ -1,0 +1,41 @@
+# Binaries
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of go build
+*.out
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go workspace file
+go.work
+
+go.work.sum
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test results
+*.coverprofile
+*.testresult
+
+# Docker
+*.pid
+
+# Ignore config overrides
+config.local.yaml

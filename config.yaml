@@ -1,0 +1,60 @@
+# DDoS Protection Configuration
+server:
+  port: ":8080"
+  mode: "release"  # debug, release, test
+
+redis:
+  host: "localhost"
+  port: "6379"
+  password: ""
+  db: 0
+
+protection:
+  # Rate limiting configuration
+  rate_limit:
+    requests_per_minute: 60
+    burst_size: 10
+    window_size: 60  # seconds
+  
+  # IP management
+  ip_blacklist:
+    enabled: true
+    auto_blacklist_threshold: 100  # requests per minute
+    blacklist_duration: 3600  # seconds (1 hour)
+  
+  ip_whitelist:
+    enabled: true
+    # Add trusted IPs here
+    ips: []
+  
+  # Request filtering
+  request_filter:
+    enabled: true
+    max_request_size: 1048576  # 1MB
+    suspicious_headers: ["x-forwarded-for", "x-real-ip"]
+    blocked_user_agents:
+      - "curl"
+      - "wget"
+      - "python-requests"
+  
+  # Traffic monitoring
+  monitoring:
+    enabled: true
+    alert_threshold: 1000  # requests per minute
+    sample_rate: 0.1  # 10% of requests
+  
+  # Health check
+  health_check:
+    enabled: true
+    timeout: 5  # seconds
+    check_interval: 30  # seconds
+
+logging:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json, text
+  file: "logs/ddos-protection.log"
+
+metrics:
+  enabled: true
+  port: ":9090"
+  path: "/metrics"
